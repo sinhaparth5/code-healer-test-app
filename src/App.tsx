@@ -1,34 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Container, Flex, Heading, Text } from '@radix-ui/themes'
+import { ProductGrid } from './components/ProductGrid'
+import { useProducts } from './hooks/useProducts'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const { products, loading, error } = useProducts()
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Container size="4" style={{ padding: '2rem' }}>
+      <Flex direction="column" gap="6">
+        <Flex direction="column" gap="2" align="center">
+          <Heading size="8" style={{ background: 'linear-gradient(to right, #8b5cf6, #ec4899)', 
+            WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            Fake Store
+          </Heading>
+          <Text size="4" color="gray">Discover amazing products at great prices</Text>
+        </Flex>
+        <ProductGrid products={products} loading={loading} error={error} />
+      </Flex>
+    </Container>
   )
 }
 
