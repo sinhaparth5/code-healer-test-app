@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: code-healer-service
+  namespace: code-healer
+  labels:
+    app: code-healer
+spec:
+  type: ClusterIP
+  selector:
+    app: code-healer
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+    name: http
