@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: code-healer-config
+  namespace: code-healer
+data:
+  API_URL: "https://fakestoreapi.com"
