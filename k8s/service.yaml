@@ -6,11 +6,11 @@ metadata:
   labels:
     app: code-healer
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: code-healer
   ports:
   - port: 80
-    targetPort: 80
+    targetPort: 8080
     protocol: TCP
     name: http
